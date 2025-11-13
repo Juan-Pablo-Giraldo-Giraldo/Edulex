@@ -1,74 +1,103 @@
-Proyecto: Plataforma de Simulación Jurídica — UI + Backend (Demo)
-Descripción general
+# Proyecto: Plataforma de Simulación Jurídica — UI + Backend (Demo)
 
-Este proyecto combina una interfaz interactiva (frontend) y un servidor Node/Express (backend) orientados a la creación de una plataforma de simulación educativa.
-El sistema busca innovar en la enseñanza de temas legales mediante experiencias prácticas, dinámicas y seguras, reemplazando la lectura tradicional por la participación activa del estudiante.
+## Descripción general
 
-Ejes fundamentales del proyecto
+Este repositorio contiene un prototipo de plataforma de simulación educativa para la enseñanza de contenidos jurídicos. Combina una interfaz web (frontend) con un servidor Node/Express (backend) para ofrecer escenarios interactivos, rutas de decisión y feedback inmediato.
 
-Simulación de situaciones:
-El módulo recrea escenarios de conflicto jurídico donde el estudiante puede interactuar, tomar decisiones y observar los efectos de sus acciones.
-Esto reemplaza la lectura densa por una interacción lúdica y práctica, reduciendo el agotamiento visual y mental.
+## Ejes pedagógicos
 
-Lógica ramificada:
-Cada decisión legal tomada por el usuario genera consecuencias específicas (óptimas, plausibles o inadecuadas).
-El aprendizaje se centra en la reflexión sobre fortalezas y debilidades del perfil profesional, no en la simple memorización.
+- **Simulación de situaciones (escenario de conflicto):** el módulo recrea escenarios realistas en los que el estudiante toma decisiones y observa efectos prácticos en lugar de consumir solo texto jurídico.
+- **Lógica ramificada:** cada decisión abre ramificaciones con consecuencias (óptimas, plausibles o inadecuadas). El objetivo es centrar el aprendizaje en la reflexión profesional, no en la memorización.
+- **Inmersión y reducción del miedo:** el entorno seguro permite experimentar sin riesgo, transformando el error en retroalimentación constructiva.
 
-Inmersión y reducción del miedo:
-El entorno simulado permite “jugar” con las variables sin riesgo real.
-Al tratarse de un espacio libre de consecuencias académicas, se elimina el miedo a fallar y se transforma el error en una fuente de retroalimentación constructiva.
+Estos enfoques fueron validados en pruebas piloto (por ejemplo, un estudio en la UNAD sobre la Ley 1480 con 30 participantes) que mostraron una buena adaptación de los estudiantes a la simulación como método de aprendizaje.
 
-Actualmente, pocas instituciones emplean estrategias de este tipo para enseñar materias jurídicas.
-En Colombia, la enseñanza de la legislación para licenciados sigue siendo un reto por la escasez de estrategias didácticas interactivas.
-Estudios realizados en la UNAD, basados en la Ley 1480, demostraron en una prueba piloto con 30 participantes una alta adaptación y comprensión mediante el uso de un simulador educativo.
-La Figura 1.1 ilustra el impacto positivo de esta propuesta.
+## Estructura del proyecto
 
-Estructura del proyecto
+- `frontend/` — HTML, CSS y JavaScript (páginas: login, register, simulator, assets comunes).
+- `backend/` — Node.js + Express. Endpoints principales: `/register`, `/login`, `/logout`, `/me`. Persistencia por defecto en SQLite (`backend/data/`).
 
-frontend/: HTML, CSS y JavaScript para la interfaz de inicio de sesión y páginas auxiliares.
+## Requisitos
 
-backend/: Servidor Node/Express con SQLite para gestionar usuarios, sesiones y endpoints /register, /login, /logout.
+- Node.js v16+ (o superior)
+- npm
 
-Requisitos
+## Ejecutar en desarrollo (Windows PowerShell)
 
-Node.js v16+
+1. Abrir PowerShell y situarse en la carpeta del backend:
 
-npm
+```powershell
+cd 'C:\Users\pablo\OneDrive\Escritorio\Uni\info 4\proyecto final\backend'
+```
 
-Ejecución en Windows (PowerShell)
+2. Instalar dependencias (usar `npm.cmd` si PowerShell bloquea `npm.ps1`):
 
-Abrir PowerShell y ubicarse en la carpeta del backend:
+```powershell
+npm.cmd install
+```
 
-cd "C:/Users/pablo/OneDrive/Escritorio/Uni/info 4/proyecto final/backend"
+3. Iniciar el servidor:
 
+```powershell
+npm.cmd start
+# o directamente:
+# node src/server.js
+```
 
-Instalar dependencias:
+4. Abrir en el navegador (puerto por defecto según el servidor; si no estás seguro usa 3000 o verifica `backend/src/server.js`):
 
-npm install
+- http://localhost:3000/login
+- http://localhost:3000/register
+- http://localhost:3000/simulator  (requiere autenticación)
 
+**Nota:** algunas implementaciones o versiones pueden usar otro puerto (p. ej. 4567). Verifica el puerto real en `backend/src/server.js` o mediante la variable de entorno `PORT`.
 
-Iniciar el servidor:
+## Persistencia y seguridad
 
-npm start
+- **Usuarios:** `backend/data/users.db` (SQLite) — conveniente para prototipos locales.
+- **Contraseñas:** en el servidor se guardan con hashing (`bcrypt`).
+- **Sesiones:** gestionadas con `express-session` y `connect-sqlite3` (cookies). En producción configura `SESSION_SECRET` como variable de entorno y usa cookies seguras (`SameSite`, `Secure`).
 
+## Subir a GitHub (comandos rápidos)
 
-Acceder desde el navegador:
+Si ya creaste el repositorio remoto en GitHub (por ejemplo `https://github.com/Juan-Pablo-Giraldo-Giraldo/Edulex.git`), estos comandos suben tu código:
 
-Login: http://localhost:4567/login/
+```powershell
+cd 'C:\Users\pablo\OneDrive\Escritorio\Uni\info 4\proyecto final'
+git add .
+git commit -m "Add project files and README"
+git remote add origin https://github.com/Juan-Pablo-Giraldo-Giraldo/Edulex.git  # o git remote set-url origin <url>
+git branch -M main
+git push -u origin main
+```
 
-Registro: http://localhost:4567/register/
+Si el remoto ya tiene commits (por ejemplo creó un README en GitHub), trae y fusiona:
 
-Simulador (protegido): http://localhost:4567/simulator/
+```powershell
+git pull origin main --allow-unrelated-histories
+# resolver conflictos si aparecen
+git add .
+git commit -m "Merge remote changes"
+git push -u origin main
+```
 
-Notas técnicas
+## Despliegue y recomendaciones
 
-Los usuarios se almacenan en backend/data/users.db (SQLite).
+- Frontend estático: GitHub Pages, Vercel o Netlify (apuntar al directorio `frontend/public`).
+- Backend: Render, Railway o servicios similares. En producción evita SQLite y usa una base de datos gestionada (Postgres, MySQL).
+- Si frontend y backend quedan en dominios distintos, habilita CORS y configura cookies con `SameSite=None` y `Secure=true` para permitir credenciales.
 
-Las contraseñas se guardan con hashing (bcrypt).
+## Archivos útiles
 
-La gestión de sesión se maneja mediante cookies y persistencia con connect-sqlite3.
+- `.gitignore` — evita subir `node_modules`, datos locales y credenciales.
+- `backend/src/server.js` — fichero principal del servidor (ver puerto y configuración de sesión).
 
-Para desarrollo puedes usar npm run dev si tienes nodemon instalado globalmente.
+---
 
-Si se desea, el sistema puede migrarse a un contenedor Docker o a otra base de datos (por ejemplo, H2 Server).
-Estas adaptaciones permiten escalar la plataforma y facilitar su despliegue institucional.
+Si quieres, puedo:
+
+- crear un `.gitignore` ahora en tu proyecto, o
+- confirmar el puerto leyendo `backend/src/server.js` y actualizar el README con el puerto exacto, o
+- preparar un pequeño `Procfile`/`package.json` script para facilitar despliegues.
+
+Indica qué prefieres y lo hago.
