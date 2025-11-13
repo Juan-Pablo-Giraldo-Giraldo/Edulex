@@ -58,19 +58,6 @@ npm.cmd start
 - **Contraseñas:** en el servidor se guardan con hashing (`bcrypt`).
 - **Sesiones:** gestionadas con `express-session` y `connect-sqlite3` (cookies). En producción configura `SESSION_SECRET` como variable de entorno y usa cookies seguras (`SameSite`, `Secure`).
 
-## Subir a GitHub (comandos rápidos)
-
-Si ya creaste el repositorio remoto en GitHub (por ejemplo `https://github.com/Juan-Pablo-Giraldo-Giraldo/Edulex.git`), estos comandos suben tu código:
-
-```powershell
-cd 'C:\Users\pablo\OneDrive\Escritorio\Uni\info 4\proyecto final'
-git add .
-git commit -m "Add project files and README"
-git remote add origin https://github.com/Juan-Pablo-Giraldo-Giraldo/Edulex.git  # o git remote set-url origin <url>
-git branch -M main
-git push -u origin main
-```
-
 Si el remoto ya tiene commits (por ejemplo creó un README en GitHub), trae y fusiona:
 
 ```powershell
