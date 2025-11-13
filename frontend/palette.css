@@ -1,0 +1,20 @@
+:root{
+  --deep-blue:#254A74; /* Fondo, navegación */
+  --light-green:#7DC785; /* Éxitos, rutas */
+  --gold:#FFD44D; /* Recompensas */
+  --slate:#5C6275; /* Formularios secundarios */
+  --soft-white:#F6F9FB; /* Tarjetas / áreas de texto */
+  --soft-red:#F09A92; /* Errores */
+}
+
+/* Pequeñas utilidades para los formularios */
+
+.btn-register{background:var(--light-green);color:#fff}
+.btn-register:hover{filter:brightness(0.96)}
+
+.card{background:var(--deep-blue);}
+.login-form input{background:var(--soft-white)}
+
+/* error color variable available for other styles */
+:root{--error:var(--soft-red)}
+
