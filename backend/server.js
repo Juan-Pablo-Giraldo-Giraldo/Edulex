@@ -8,9 +8,9 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const PORT = process.env.PORT || 4567;
 
-// DB (file backend/data/users.db)
-const dbPath = path.join(__dirname, 'data', 'users.db');
-const dbDir = path.join(__dirname, 'data');
+// DB (file backend/data/users.db) - paths adjusted because this file lives in backend/src
+const dbDir = path.join(__dirname, '..', 'data');
+const dbPath = path.join(dbDir, 'users.db');
 const fs = require('fs');
 if (!fs.existsSync(dbDir)) fs.mkdirSync(dbDir, { recursive: true });
 const db = new sqlite3.Database(dbPath);
@@ -29,15 +29,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Session store in SQLite (connect-sqlite3)
 app.use(session({
-  store: new SQLiteStore({ db: 'sessions.sqlite', dir: path.join(__dirname, 'data') }),
+  store: new SQLiteStore({ db: 'sessions.sqlite', dir: dbDir }),
   secret: process.env.SESSION_SECRET || 'change-this-secret',
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 día
 }));
 
-// Servir frontend estático
-app.use('/', express.static(path.join(__dirname, '..', 'frontend')));
+// Servir frontend estático desde project_root/frontend/public
+const staticDir = path.join(__dirname, '..', '..', 'frontend', 'public');
+app.use('/', express.static(staticDir));
 
 // Helpers
 function requireAuth(req, res, next) {
@@ -98,9 +99,8 @@ app.post('/logout', (req, res) => {
 // Protected simulator route (servir el archivo solo si autenticado)
 app.get(['/simulator','/simulator/'], (req, res, next) => {
   if (req.session && req.session.userId) {
-    res.sendFile(path.join(__dirname, '..', 'frontend', 'simulator', 'index.html'));
+    res.sendFile(path.join(staticDir, 'simulator', 'index.html'));
   } else {
-    // si es petición XHR, devolver 401 JSON, si es navegador redirigir al login
     if (req.headers.accept && req.headers.accept.indexOf('application/json') !== -1) {
       res.status(401).json({ success: false, message: 'No autorizado' });
     } else {
