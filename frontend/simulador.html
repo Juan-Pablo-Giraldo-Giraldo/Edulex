@@ -6,6 +6,7 @@
     <title>Simulador - Inicio</title>
     <link rel="stylesheet" href="palette.css" />
     <link rel="stylesheet" href="principal-estil.css" />
+    <link rel="stylesheet" href="simulador.css" />
 </head>
 <body>
     <div class="wrap">
@@ -63,92 +64,7 @@
       </div>
     </div>
 
-    <style>
-    .modal{display:none;position:fixed;inset:0;z-index:1200}
-    .modal[aria-hidden="false"]{display:block}
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.4)}
-    .modal-content{position:relative;max-width:720px;margin:6vh auto;background:#fff;padding:18px;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.2)}
-    .modal-content input[type="text"],.modal-content textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
-    .modal-content label{display:block;margin-top:8px;font-weight:600}
-    </style>
-
-    <script>
-    (function(){
-      const bugIcon = document.getElementById('bugIcon');
-      const bugModal = document.getElementById('bugModal');
-      const bugBackdrop = document.getElementById('bugBackdrop');
-      const bugCancel = document.getElementById('bugCancel');
-      const bugForm = document.getElementById('bugForm');
-      const bugStatus = document.getElementById('bugStatus');
-
-      function openBugModal(){ bugModal.setAttribute('aria-hidden','false'); document.getElementById('bugTitle').focus(); }
-      function closeBugModal(){ bugModal.setAttribute('aria-hidden','true'); bugStatus.textContent=''; bugForm.reset(); }
-
-      if(bugIcon){ bugIcon.addEventListener('click', openBugModal); bugIcon.parentElement.addEventListener('keypress', function(e){ if(e.key==='Enter' || e.key===' ') openBugModal(); }); }
-      if(bugBackdrop) bugBackdrop.addEventListener('click', closeBugModal);
-      if(bugCancel) bugCancel.addEventListener('click', closeBugModal);
-
-      async function toBase64(file){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result.split(',')[1]); r.onerror=rej; r.readAsDataURL(file); }); }
-
-      bugForm.addEventListener('submit', async function(e){
-        e.preventDefault();
-        bugStatus.textContent='Enviando...';
-        const title = document.getElementById('bugTitle').value.trim();
-        const description = document.getElementById('bugDesc').value.trim();
-        const fileInput = document.getElementById('bugFile');
-        let screenshot = null;
-        if(fileInput.files && fileInput.files[0]){
-          try{ screenshot = await toBase64(fileInput.files[0]); }catch(err){ console.warn('error encoding file',err); }
-        }
-
-        const payload = { title, description, screenshot, ts: new Date().toISOString(), page: window.location.pathname };
-
-        // Intentar enviar al servidor; si falla, guardar en localStorage
-        try{
-          const res = await fetch('/report-bug', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-          if(res.ok){ bugStatus.textContent='Reporte enviado. Gracias.'; setTimeout(closeBugModal,1200); return; }
-        }catch(err){ /* ignore */ }
-
-        // fallback: save to localStorage
-        try{
-          const key = 'bugReports';
-          const prev = JSON.parse(localStorage.getItem(key) || '[]');
-          prev.push(payload);
-          localStorage.setItem(key, JSON.stringify(prev));
-          bugStatus.textContent='Guardado localmente (sin servidor).';
-          setTimeout(closeBugModal,1200);
-        }catch(err){ bugStatus.textContent='Error al guardar reporte.' }
-      });
-    })();
-    </script>
-
-    <style>
-    /* Requested palette and centering: Azul Profundo, Verde Claro, Amarillo, Gris Pizarra, Blanco Suave, Rojo Suave */
-    :root{
-      --deep-blue: #254A74; /* Fondo, navegación */
-      --light-green: #7DC785; /* Éxitos, rutas personalizadas */
-      --gold: #FFD44D; /* Recompensas, hitos */
-      --slate: #5C6275; /* Fondos secundarios, formularios */
-      --soft-white: #F6F9FB; /* Área de texto, tarjetas */
-      --soft-red: #F09A92; /* Error, advertencia */
-    }
-    html,body{height:100%;margin:0}
-    .wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;background:var(--soft-white);padding:20px}
-    .sim-header{position:relative;text-align:center}
-    .sim-title{font-size:34px;letter-spacing:2px;margin:6px 0;color:var(--deep-blue)}
-    .law-pill{display:inline-block;background:var(--light-green);color:var(--deep-blue);padding:8px 18px;border-radius:12px;margin-top:6px;font-weight:700}
-    .bug-area{position:fixed;right:18px;top:18px;z-index:1300}
-
-    .sim-main{padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .tiles{max-width:1100px;margin:12px auto;text-align:center}
-    .tile-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-    .tile, .tile-center{background:rgba(37,74,116,0.12);padding:26px;border-radius:4px;color:var(--deep-blue);font-size:20px;display:flex;align-items:center;justify-content:center}
-    .tile-center{width:60%;margin:0 auto;display:block}
-
-    .actions{display:flex;gap:18px;justify-content:center;margin:28px 0}
-    .big-btn{background:var(--deep-blue);color:var(--soft-white);border-radius:18px;padding:18px 48px;font-size:34px;border:none;cursor:pointer}
-    /* Bug icon styling: make it stand out with gold background */
-    .logo svg{background:var(--gold);border-radius:8px;padding:6px;color:var(--deep-blue)}
-    </style>
+    
+    <script src="simulador.js" defer></script>
 </body>
 </html>
