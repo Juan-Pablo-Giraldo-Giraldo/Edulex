@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulador - Ley 1620 de 2013</title>
+    <link rel="stylesheet" href="palette.css" />
+    <link rel="stylesheet" href="principal-estil.css" />
+    <link rel="stylesheet" href="simulador.css" />
+    <link rel="stylesheet" href="indice-simulador.css" />
+    <link rel="stylesheet" href="../../styles/palette-global.css" />
+</head>
+<body>
+    <div class="wrap">
+      <header class="sim-header" role="banner">
+        <h1 class="sim-title">Simulador: Ley 1620 (2013)</h1>
+        <div class="law-pill">Ley 1620 de 2013</div>
+      </header>
+
+      <main class="sim-main" id="top">
+        <!-- Pantalla de Inicio/registro -->
+        <section id="screen-home" class="screen">
+          <h2>Bienvenido</h2>
+          <p>Practica la aplicación de la Ley 1620 mediante decisiones en escenarios reales. No es una encuesta: es un simulador de toma de decisiones.</p>
+          <p>Si ya iniciaste sesión en la pantalla de registro, tu cuenta está vinculada al ranking automáticamente.</p>
+        </section>
+
+        <!-- Lista de escenarios y panel de toma de decisiones -->
+        <section id="screen-scenarios" class="screen hidden">
+
+          <!-- Panel de selección de situación (tarjetas coloreadas) -->
+          <div class="situation-panel">
+            <div class="section-title">Elige la situación requerida</div> 
+            <div class="situation-grid">
+              <div class="situation-card blue" tabindex="0">
+                <div class="label">Abuso escolar</div>
+                <div class="desc">Casos relacionados con acoso y abuso entre estudiantes.</div>
+                <div class="situation-actions">
+                  <a class="choose-btn primary" href="../escenarios/escenario1.html">Seleccionar</a>
+                </div>
+              </div>
+
+              <div class="situation-card green" tabindex="0">
+                <div class="label">Conflictos familiares</div>
+                <div class="desc">Situaciones que requieren mediación por problemas en el entorno familiar.</div>
+                <div class="situation-actions">
+                  <a class="choose-btn primary" href="../escenarios/escenario2.html">Seleccionar</a>
+                </div>
+              </div>
+
+              <div class="situation-card gold" tabindex="0">
+                <div class="label">Ciberacoso</div>
+                <div class="desc">Incidentes online donde se vulnera la dignidad de estudiantes.</div>
+                <div class="situation-actions">
+                  <a class="choose-btn primary" href="../escenarios/escenario3.html">Seleccionar</a>
+                </div>
+              </div>
+
+              <div class="situation-card red" tabindex="0">
+                <div class="label">Riesgo de seguridad</div>
+                <div class="desc">Casos que requieren intervención inmediata por riesgo físico.</div>
+                <div class="situation-actions">
+                  <a class="choose-btn primary" href="../escenarios/escenario4.html">Seleccionar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón único: Ver ranking (ancho completo debajo del selector) -->
+          <div class="situation-footer">
+            <a class="btn color-deep full" href="../../ranking/ranking.html">Ver ranking</a>
+          </div>
+
+          <div id="scenarios-list" class="scenarios-list"></div>
+          <div id="scenario-panel" class="scenario-panel hidden">
+            <h3 id="scenario-title"></h3>
+            <p id="scenario-desc"></p>
+            <div id="options" class="options"></div>
+          </div>
+        </section>
+
+        <!-- Resultados / retroalimentación final -->
+        <section id="screen-results" class="screen hidden">
+          <div id="final-feedback"></div>
+          <div id="leaderboard"></div>
+
+          <!-- Los botones de acción finales se gestionan desde la página de ranking ahora -->
+        </section>
+      </main>
+    </div>
+    <script src="simula_logic.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulador - Ley 1620 de 2013</title>
+    <link rel="stylesheet" href="palette.css" />
+    <link rel="stylesheet" href="principal-estil.css" />
+    <link rel="stylesheet" href="simulador.css" />
+    <link rel="stylesheet" href="../styles/palette-global.css" />
+</head>
+<body>
+    <div class="wrap">
+      <header class="sim-header" role="banner">
+        <h1 class="sim-title">Simulador: Ley 1620 (2013)</h1>
+        <div class="law-pill">Ley 1620 de 2013</div>
+      </header>
+
+      <main class="sim-main section-accent-gold" id="top">
+        <!-- Pantalla de Inicio/registro -->
+        <section id="screen-home" class="screen">
+          <h2>Bienvenido</h2>
+          <p>Practica la aplicación de la Ley 1620 mediante decisiones en escenarios reales. No es una encuesta: es un simulador de toma de decisiones.</p>
+          <p>Si ya iniciaste sesión en la pantalla de registro, tu cuenta está vinculada al ranking automáticamente.</p>
+          <div class="controls">
+            <a href="indice simulador/indice simulador.html" class="btn color-deep" title="Ir al selector de situaciones">Comenzar</a>
+          </div>
+        </section>
+
+        <!-- Lista de escenarios y panel de toma de decisiones -->
+        <section id="screen-scenarios" class="screen hidden">
+          <h2>Escenarios</h2>
+          <div id="scenarios-list" class="scenarios-list"></div>
+          <div id="scenario-panel" class="scenario-panel hidden">
+            <button id="back-to-list" class="btn color-slate small">Regresar</button>
+            <h3 id="scenario-title"></h3>
+            <p id="scenario-desc"></p>
+            <div id="options" class="options"></div>
+            <div class="nav-buttons">
+              <button id="prev-scenario" class="btn color-slate">Regresar</button>
+              <button id="next-scenario" class="btn color-green">Siguiente</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Resultados / retroalimentación final -->
+        <section id="screen-results" class="screen hidden">
+          <h2>Retroalimentación final</h2>
+          <div id="final-feedback"></div>
+          <h3>Ranking general</h3>
+          <div id="leaderboard"></div>
+          <!-- Acciones finales movidas al selector/ranking: controles eliminados aquí -->
+        </section>
+      </main>
+    </div>
+    <script src="simula_logic.js"></script>
+</body>
+</html>

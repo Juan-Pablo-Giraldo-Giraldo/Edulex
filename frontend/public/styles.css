@@ -1,5 +1,0 @@
-/* Register page styles: reuse login styles and small tweaks */
-@import url('../login/styles.css');
-
-.card{min-height:420px}
-.btn-register{background:var(--light-green);color:#063;}

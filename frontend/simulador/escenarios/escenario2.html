@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Escenario 2</title>
+    <link rel="stylesheet" href="escenario2.css" />
+    <link rel="stylesheet" href="../../styles/palette-global.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../simulador.html">Plataforma</a>
+    </header>
+
+    <main class="content section-accent-green">
+      <h1 id="scenario-title">Escenario</h1>
+      <p id="scenario-desc"></p>
+      <div id="options" class="options" style="margin-top:12px"></div>
+    </main>
+
+    <aside class="controls">
+      <h3>Apariencia</h3>
+      <div class="control-group">
+        <div class="label">Texto</div>
+        <label><input type="radio" name="size" value="small" data-reader-control="size"> Pequeño</label>
+        <label><input type="radio" name="size" value="standard" data-reader-control="size"> Estándar</label>
+        <label><input type="radio" name="size" value="large" data-reader-control="size"> Grande</label>
+      </div>
+      <div class="control-group">
+        <div class="label">Anchura</div>
+        <label><input type="radio" name="width" value="standard" data-reader-control="width"> Estándar</label>
+        <label><input type="radio" name="width" value="wide" data-reader-control="width"> Ancho</label>
+      </div>
+      <div class="control-group">
+        <div class="label">Color</div>
+        <label><input type="radio" name="theme" value="auto" data-reader-control="theme"> Automático</label>
+        <label><input type="radio" name="theme" value="light" data-reader-control="theme"> Claro</label>
+        <label><input type="radio" name="theme" value="dark" data-reader-control="theme"> Oscuro</label>
+      </div>
+      <div style="margin-top:10px"><a class="btn color-slate small" href="../register.html">Cambiar cuenta / Registrar</a></div>
+    </aside>
+
+    <script src="reader-controls.js"></script>
+    <script src="scenario_logic.js"></script>
+    <script>
+      initScenarioPage(2);
+    </script>
+  </body>
+</html>
