@@ -4,7 +4,6 @@
 	--accent: #254A74;
 }
 
-	/* ajustes */
 	.content p{line-height:1.6;color:var(--text);}
 	font-family: Segoe UI, Arial, sans-serif;
 }
@@ -19,7 +18,6 @@ header.top {
 
 .brand {
 	font-weight: 700;
-	/* botones de opción */
 	.option-btn{display:inline-block;padding:8px 12px;margin:6px 8px 0 0;border-radius:8px;border:1px solid rgba(37,74,116,0.08);background:#fff;color:var(--text);cursor:pointer;transition:all .14s ease;box-shadow:0 1px 0 rgba(0,0,0,0.03)}
 	text-decoration: none;
 }
@@ -79,7 +77,6 @@ html.theme-dark {
 	line-height: 1.6;
 }
 
-/* Estilos para botones de opción */
 .option-btn {
 	display: inline-block;
 	padding: 8px 12px;

@@ -1,13 +1,12 @@
 :root {
-  --deep-blue: #254A74; /* Fondo, navegación */
-  --light-green: #7DC785; /* Éxitos, rutas personalizadas */
-  --gold: #FFD44D; /* Recompensas, hitos */
-  --slate: #5C6275; /* Fondos secundarios, formularios */
-  --soft-white: #F6F9FB; /* Área de texto, tarjetas */
-  --soft-red: #F09A92; /* Error, advertencia */
+  --deep-blue: #254A74;
+  --light-green: #7DC785;
+  --gold: #FFD44D;
+  --slate: #5C6275;
+  --soft-white: #F6F9FB;
+  --soft-red: #F09A92;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -157,7 +156,6 @@ body {
   color: var(--deep-blue);
 }
 
-/* simulador */
 .screen {
   background: #fff;
   padding: 18px;
@@ -271,4 +269,27 @@ body {
 .small-muted {
   color: var(--slate);
   font-size: 0.9rem;
+}
+
+.sim-main.section-accent-gold::before {
+  background: var(--soft-red);
+}
+
+.sim-main.section-accent-gold .controls .btn.color-deep {
+  transition: transform 0.4s, box-shadow 0.4s, background-color 0.4s, color 0.4s;
+  text-decoration: none;
+}
+
+.sim-main.section-accent-gold .controls .btn.color-deep:hover,
+.sim-main.section-accent-gold .controls .btn.color-deep:focus {
+  transform: translateY(-6px);
+  background: var(--soft-red);
+  color: #ffffff;
+  box-shadow: 0 14px 36px rgba(240,154,146,0.24);
+  text-decoration: none;
+}
+
+.sim-main.section-accent-gold .controls .btn.color-deep a,
+.sim-main.section-accent-gold .controls .btn.color-deep {
+  text-decoration: none;
 }

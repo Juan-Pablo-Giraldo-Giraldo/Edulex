@@ -1,35 +1,49 @@
-/* Estilos específicos para el índice del simulador
-   Usa las variables de color definidas en `principal-estil.css`
-*/
-
 :root {
-  /* Paleta exacta (se aplicará en toda la página) */
-  --deep-blue: #254A74; /* Azul Profundo */
-  --light-green: #7DC785; /* Verde Claro */
-  --gold: #FFD44D; /* Amarillo */
-  --slate: #5C6275; /* Gris Pizarra */
-  --soft-white: #F6F9FB; /* Blanco Suave */
-  --soft-red: #F09A92; /* Rojo Suave */
+  --deep-blue: #254A74;
+  --light-green: #7DC785;
+  --gold: #FFD44D;
+  --slate: #5C6275;
+  --soft-white: #F6F9FB;
+  --soft-red: #F09A92;
   --text-color: #222222;
 }
 
-/* Layout base */
 body {
   background: linear-gradient(180deg, var(--soft-white) 0%, #eef2f5 100%);
   color: var(--text-color);
 }
 
-.wrap { padding: 28px 20px; }
+.wrap {
+  padding: 28px 20px;
+}
 
-.sim-header { text-align: center; margin-bottom: 18px; }
-.sim-title { color: var(--deep-blue); margin: 4px 0 6px; }
-.law-pill { background: var(--light-green); color: #073241; display:inline-block; padding:6px 12px; border-radius:999px; font-weight:700; }
+.sim-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
 
-/* Global palette overrides para elementos comunes */
-h1, h2, h3, .section-title { color: var(--deep-blue); }
-a { color: var(--deep-blue); }
+.sim-title {
+  color: var(--deep-blue);
+  margin: 4px 0 6px;
+}
 
-/* Botones base usando la paleta */
+.law-pill {
+  background: var(--light-green);
+  color: #073241;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+h1, h2, h3, .section-title {
+  color: var(--deep-blue);
+}
+
+a {
+  color: var(--deep-blue);
+}
+
 .btn {
   background: var(--soft-white);
   color: var(--slate);
@@ -38,26 +52,38 @@ a { color: var(--deep-blue); }
   border-radius: 8px;
   font-weight: 700;
 }
-.btn.primary { background: var(--light-green); color: #073241; border: 0; }
-.btn.small { padding: 6px 8px; font-size: 0.95rem; }
 
-/* Panels y tarjetas adoptan el fondo claro y sombra sutil */
+.btn.primary {
+  background: var(--light-green);
+  color: #073241;
+  border: 0;
+}
+
+.btn.small {
+  padding: 6px 8px;
+  font-size: 0.95rem;
+}
+
 .panel, .situation-panel, .doc-card, .screen, .scenario-panel {
   background: var(--soft-white);
   border: 1px solid rgba(92,98,117,0.06);
   box-shadow: 0 10px 30px rgba(16,24,40,0.04);
 }
 
-/* Nav y elementos destacados */
-.nav { background: var(--light-green); color: #073241; }
-.nav .nav-link, .nav button { background: var(--soft-white); color: var(--deep-blue); }
+.nav {
+  background: var(--light-green);
+  color: #073241;
+}
 
-/* Texto secundario */
-.small-muted, .desc { color: var(--slate); }
+.nav .nav-link, .nav button {
+  background: var(--soft-white);
+  color: var(--deep-blue);
+}
 
-/* (Limpio) botones finales gestionados desde la página de ranking */
+.small-muted, .desc {
+  color: var(--slate);
+}
 
-/* Panel de selección de situación */
 .situation-panel {
   max-width: 1100px;
   margin: 18px auto 34px;
@@ -68,8 +94,15 @@ a { color: var(--deep-blue); }
   border: 1px solid rgba(16,24,40,0.04);
 }
 
-.situation-panel .section-title { color: var(--deep-blue); margin-bottom: 8px; }
-.situation-panel p.lead { color: #374151; margin: 6px 0 12px; }
+.situation-panel .section-title {
+  color: var(--deep-blue);
+  margin-bottom: 8px;
+}
+
+.situation-panel p.lead {
+  color: #374151;
+  margin: 6px 0 12px;
+}
 
 .situation-grid {
   display: grid;
@@ -88,44 +121,134 @@ a { color: var(--deep-blue); }
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
   cursor: pointer;
 }
-.situation-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(16,24,40,0.10); border-color: var(--deep-blue); }
 
-.situation-card .label { font-weight: 800; color: var(--deep-blue); }
-.situation-card .desc { color: #374151; font-size: 0.95rem; }
+.situation-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(16,24,40,0.10);
+  border-color: var(--deep-blue);
+}
 
-.situation-actions { margin-top: auto; display:flex; gap:8px; }
-.situation-actions .choose-btn { padding: 10px; border-radius: 10px; text-align:center; font-weight:700; text-decoration:none; display:inline-block; flex:1; }
-.choose-btn.primary { background: var(--light-green); color: #073241; border: 0; }
-.choose-btn.secondary { background: var(--deep-blue); color: #fff; border: 0; }
+.situation-card .label {
+  font-weight: 800;
+  color: var(--deep-blue);
+}
 
-/* Variantes de color por tarjeta */
-.situation-card.blue { border-left: 6px solid var(--deep-blue); }
-.situation-card.green { border-left: 6px solid var(--light-green); }
-.situation-card.gold { border-left: 6px solid var(--gold); }
-.situation-card.red { border-left: 6px solid var(--soft-red); }
+.situation-card .desc {
+  color: #374151;
+  font-size: 0.95rem;
+}
 
-.situation-card .label { display: inline-block; padding: 6px 10px; border-radius: 8px; font-size: 0.92rem; }
-.situation-card.blue .label { background: rgba(37,74,116,0.08); color: var(--deep-blue); }
-.situation-card.green .label { background: rgba(125,199,133,0.12); color: #064036; }
-.situation-card.gold .label { background: rgba(255,212,77,0.12); color: #704700; }
-.situation-card.red .label { background: rgba(240,154,146,0.12); color: #7A2A23; }
+.situation-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+}
 
-/* Botones de acción por tarjeta (sobrescriben la clase .choose-btn.primary) */
-.situation-card.blue .choose-btn.primary { background: var(--deep-blue); color: #fff; }
-.situation-card.green .choose-btn.primary { background: var(--light-green); color: #073241; }
-.situation-card.gold .choose-btn.primary { background: var(--gold); color: #2b1b00; }
-.situation-card.red .choose-btn.primary { background: var(--soft-red); color: #5a1713; }
+.situation-actions .choose-btn {
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  flex: 1;
+}
 
-/* Estado activo con sombra de color */
-.situation-card.blue.active { box-shadow: 0 20px 50px rgba(37,74,116,0.12); }
-.situation-card.green.active { box-shadow: 0 20px 50px rgba(125,199,133,0.14); }
-.situation-card.gold.active { box-shadow: 0 20px 50px rgba(255,212,77,0.12); }
-.situation-card.red.active { box-shadow: 0 20px 50px rgba(240,154,146,0.12); }
+.choose-btn.primary {
+  background: var(--light-green);
+  color: #073241;
+  border: 0;
+}
 
-/* Indicador activo */
-.situation-card.active { outline: 3px solid rgba(125,199,133,0.14); }
+.choose-btn.secondary {
+  background: var(--deep-blue);
+  color: #fff;
+  border: 0;
+}
 
-/* Quitar el contorno azul por defecto y usar un foco sutil accesible */
+.situation-card.blue {
+  border-left: 6px solid var(--deep-blue);
+}
+
+.situation-card.green {
+  border-left: 6px solid var(--light-green);
+}
+
+.situation-card.gold {
+  border-left: 6px solid var(--gold);
+}
+
+.situation-card.red {
+  border-left: 6px solid var(--soft-red);
+}
+
+.situation-card .label {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.situation-card.blue .label {
+  background: rgba(37,74,116,0.08);
+  color: var(--deep-blue);
+}
+
+.situation-card.green .label {
+  background: rgba(125,199,133,0.12);
+  color: #064036;
+}
+
+.situation-card.gold .label {
+  background: rgba(255,212,77,0.12);
+  color: #704700;
+}
+
+.situation-card.red .label {
+  background: rgba(240,154,146,0.12);
+  color: #7A2A23;
+}
+
+.situation-card.blue .choose-btn.primary {
+  background: var(--deep-blue);
+  color: #fff;
+}
+
+.situation-card.green .choose-btn.primary {
+  background: var(--light-green);
+  color: #073241;
+}
+
+.situation-card.gold .choose-btn.primary {
+  background: var(--gold);
+  color: #2b1b00;
+}
+
+.situation-card.red .choose-btn.primary {
+  background: var(--soft-red);
+  color: #5a1713;
+}
+
+.situation-card.blue.active {
+  box-shadow: 0 20px 50px rgba(37,74,116,0.12);
+}
+
+.situation-card.green.active {
+  box-shadow: 0 20px 50px rgba(125,199,133,0.14);
+}
+
+.situation-card.gold.active {
+  box-shadow: 0 20px 50px rgba(255,212,77,0.12);
+}
+
+.situation-card.red.active {
+  box-shadow: 0 20px 50px rgba(240,154,146,0.12);
+}
+
+.situation-card.active {
+  outline: 3px solid rgba(125,199,133,0.14);
+}
+
 .situation-card:focus,
 .situation-card:focus-visible {
   outline: none;
@@ -144,29 +267,52 @@ a { color: var(--deep-blue); }
   border-radius: 10px;
 }
 
-/* Hover: sombra/margen del color del botón (coincide con la paleta) */
 .situation-card.blue .choose-btn.primary:hover,
 .situation-card.blue .choose-btn.secondary:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(37,74,116,0.20);
 }
-.situation-card.green .choose-btn.primary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(125,199,133,0.20); }
-.situation-card.green .choose-btn.secondary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(37,74,116,0.18); }
-.situation-card.gold .choose-btn.primary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(255,212,77,0.22); }
-.situation-card.gold .choose-btn.secondary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(37,74,116,0.18); }
-.situation-card.red .choose-btn.primary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(240,154,146,0.20); }
-.situation-card.red .choose-btn.secondary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(37,74,116,0.18); }
 
-/* (Limpio) hover en botones de resultados movidos al ranking */
-
-/* Responsive small */
-@media (max-width: 560px) {
-  .situation-grid { grid-template-columns: 1fr; }
-  .wrap { padding: 14px; }
+.situation-card.green .choose-btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(125,199,133,0.20);
 }
 
-/* Cuando una sección con acento contiene un .screen o .panel, evitar doble recuadro
-   dejamos únicamente la sección-accent como contenedor visible */
+.situation-card.green .choose-btn.secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(37,74,116,0.18);
+}
+
+.situation-card.gold .choose-btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(255,212,77,0.22);
+}
+
+.situation-card.gold .choose-btn.secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(37,74,116,0.18);
+}
+
+.situation-card.red .choose-btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(240,154,146,0.20);
+}
+
+.situation-card.red .choose-btn.secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(37,74,116,0.18);
+}
+
+@media (max-width: 560px) {
+  .situation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wrap {
+    padding: 14px;
+  }
+}
+
 .section-accent-blue .screen,
 .section-accent-green .screen,
 .section-accent-gold .screen,
@@ -181,7 +327,6 @@ a { color: var(--deep-blue); }
   padding: 0 !important;
 }
 
-/* Asegurar que el contenido interno mantenga separación dentro de la sección-accent */
 .section-accent-blue > .screen > *,
 .section-accent-green > .screen > *,
 .section-accent-gold > .screen > *,
@@ -195,12 +340,46 @@ a { color: var(--deep-blue); }
   z-index: 2;
 }
 
-/* Pequeños ajustes visuales para botones ya existentes */
-.controls .btn.primary { background: var(--light-green); color: #073241; border-radius: 10px; padding: 10px 16px; }
+.controls .btn.primary {
+  background: var(--light-green);
+  color: #073241;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
 
-/* Ajustes responsivos: las acciones finales ahora se muestran en la página de ranking */
+.situation-footer {
+  max-width: 1100px;
+  margin: 8px auto 22px;
+  padding: 0 12px;
+}
 
-/* Barra inferior bajo el selector: botón de ranking ancho completo */
-.situation-footer { max-width:1100px; margin: 8px auto 22px; padding: 0 12px; }
-.situation-footer .btn.full { display:block; width:100%; padding:14px 18px; border-radius:12px; font-size:1.02rem; text-align:center; font-weight:800; background:var(--deep-blue); color:#fff; border:0; }
-.situation-footer .btn.full:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(37,74,116,0.24); }
+.situation-footer .btn.full {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 1.02rem;
+  text-align: center;
+  font-weight: 800;
+  background: var(--deep-blue);
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+}
+
+.situation-footer .btn.full a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.situation-footer .btn.full:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(37,74,116,0.24);
+  text-decoration: none;
+}
+
+.situation-footer .btn.full:focus,
+.situation-footer .btn.full:focus-visible {
+  outline: none;
+  text-decoration: none;
+}

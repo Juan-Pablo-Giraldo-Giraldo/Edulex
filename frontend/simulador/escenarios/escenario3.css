@@ -77,9 +77,7 @@ html.theme-dark {
 	line-height: 1.6;
 }
 
-/* ajustes */
-
-/* botones de opción */
+.option-btn {
 .option-btn {
 	display: inline-block;
 	padding: 8px 12px;

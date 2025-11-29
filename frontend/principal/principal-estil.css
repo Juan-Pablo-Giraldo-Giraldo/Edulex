@@ -6,11 +6,9 @@
   --soft-white: #F6F9FB;
   --soft-red: #F09A92;
 }
-/* scroll suave */
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  /* fuente más neutra y legible en Windows */
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
   font-size: 14px;
   color: #222;
@@ -24,12 +22,12 @@ body {
 
 
 .nav {
-  width: 200px; /* más compacto */
+  width: 200px;
   background: var(--light-green);
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 18px 12px; /* menos padding lateral */
+  padding: 18px 12px;
   position: fixed;
   left: 0;
   top: 0;
@@ -41,9 +39,21 @@ body {
 
 
 .nav .logo {
-  height: 48px;
-  background: var(--deep-blue);
+  width: auto;
+  height: auto;
+  background: none;
   border-radius: 8px;
+  padding: 0;
+  display: block;
+}
+
+.nav .logo img,
+.nav .logo .nav-logo-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
 }
 
 .nav .nav-link,
@@ -54,12 +64,20 @@ body {
   color: var(--deep-blue);
   text-decoration: none;
   border: 2px solid rgba(0, 0, 0, 0.06);
-  padding: 8px 10px; /* más pequeño */
-  border-radius: 14px; /* menos redondeado */
+  padding: 8px 10px;
+  border-radius: 14px;
   font-weight: 600;
   cursor: pointer;
   margin: 6px 0;
   font-size: 14px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+}
+
+.nav .nav-link {
+  text-decoration: none !important;
+  -webkit-text-decoration-skip-ink: none;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0px;
 }
 
 .nav .nav-link:focus,
@@ -68,11 +86,46 @@ body {
 .nav button:hover {
   outline: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transform: translateY(0);
+}
+
+.nav .nav-link.blue { background: var(--deep-blue); color: #fff; border-color: rgba(0,0,0,0.06); }
+.nav .nav-link.green { background: var(--light-green); color: #fff; border-color: rgba(0,0,0,0.06); }
+.nav .nav-link.gold { background: var(--gold); color: #ffffff; border-color: rgba(0,0,0,0.06); }
+.nav .nav-link.red { background: var(--soft-red); color: #fff; border-color: rgba(0,0,0,0.06); }
+
+.nav .nav-link.blue:hover,
+.nav .nav-link.blue:focus {
+  background: #ffffff;
+  color: var(--deep-blue);
+  box-shadow: 0 14px 30px rgba(16,24,40,0.14);
+  transform: translateY(-6px);
+}
+.nav .nav-link.green:hover,
+.nav .nav-link.green:focus {
+  background: #ffffff;
+  color: var(--light-green);
+  box-shadow: 0 14px 30px rgba(16,24,40,0.14);
+  transform: translateY(-6px);
+}
+.nav .nav-link.gold:hover,
+.nav .nav-link.gold:focus {
+  background: #ffffff;
+  color: var(--gold);
+  box-shadow: 0 14px 30px rgba(16,24,40,0.14);
+  transform: translateY(-6px);
+}
+.nav .nav-link.red:hover,
+.nav .nav-link.red:focus {
+  background: #ffffff;
+  color: var(--soft-red);
+  box-shadow: 0 14px 30px rgba(16,24,40,0.14);
+  transform: translateY(-6px);
 }
 
 
 .content {
-  margin-left: 200px; /* compensar el nuevo ancho del nav */
+  margin-left: 200px;
   padding: 28px;
   background: var(--soft-white);
   min-height: 100vh;
@@ -82,7 +135,7 @@ body {
 .panel {
   background: #ffffff;
   padding: 16px;
-  border-radius: 8px; /* menos radio en los recuadros */
+  border-radius: 8px;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.05);
   border: 1px solid rgba(16, 24, 40, 0.04);
 }
@@ -95,17 +148,15 @@ body {
 .panel p {
   color: #333;
   line-height: 1.7;
-  text-align: left; /* Por defecto el texto no estará centrado */
+  text-align: left;
 }
 
-/* layout panel: items alineados a la izquierda */
 .panel {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* listas: bloque centrado, items a la izquierda */
 .panel ul {
   display: inline-block;
   text-align: left;
@@ -151,17 +202,17 @@ body {
   justify-content: center;
 }
 
+
 .contact-image {
-  max-width: 420px; /* imagen más grande para ocupar el espacio vertical del texto */
+  max-width: 420px;
   width: 100%;
-  height: 100%; /* se estira para ocupar la altura del contenedor */
-  object-fit: contain; /* mantiene proporciones y no recorta */
+  height: 100%;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
   border: 1px solid rgba(16, 24, 40, 0.04);
 }
 
-/* esto mueve la parte del contacto */
 #contact-plain {
   background: transparent;
   padding: 18px;
@@ -169,26 +220,25 @@ body {
   max-width: 960px;
 }
 
-/* contacto: imagen izq, textos der (igual que simulaciones) */
 .contact-row {
   display: flex;
   gap: 20px;
   align-items: center;
   width: 100%;
-  max-width: 920px; /* limitar ancho total del bloque */
-  margin: 0 auto; /* centrar horizontalmente el bloque dentro de #contact-plain */
-  justify-content: center; /* centrar contenido interno (imagen + textos) */
+  max-width: 920px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .contact-row .contact-texts {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centrar título y lista dentro del área de textos */
+  align-items: center;
 }
 
 .contact-row .contact-image-wrap {
-  flex: 0 0 360px; /* ancho fijo para la imagen como en .sim-row */
+  flex: 0 0 360px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,7 +252,6 @@ body {
   object-fit: contain;
 }
 
-/* correos: 2 columnas */
 .contact-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -226,7 +275,6 @@ body {
   #contact-plain > .contact-image-wrap {
     justify-self: center;
   }
-  /* responsive: imagen vuelve a tamaño natural */
   .contact-image {
     max-width: 260px;
     height: auto;
@@ -246,7 +294,6 @@ body {
   font-weight: 700;
 }
 
-/* contact-panel: compatibilidad */
 #contact-panel {
   background: #fff;
   border-radius: 12px;
@@ -262,7 +309,6 @@ body {
 }
 
 .simulaciones-title {
-  /* quitar fondo verde del título */
   background: none;
   color: var(--deep-blue);
   display: block;
@@ -270,7 +316,6 @@ body {
   margin: 0 0 12px;
 }
 
-/* títulos secciones */
 .content h2,
 .content h3,
 .section-title {
@@ -286,8 +331,6 @@ body {
   border-radius: 8px;
 }
 
-/* Colores por sección basados en la paleta del índice de simulador */
-/* Cada sección recibe un acento (borde izquierdo) y un fondo sutil relacionado */
 #ejes-section {
   border-left: 8px solid var(--deep-blue);
   background: linear-gradient(180deg, rgba(37,74,116,0.03), rgba(255,255,255,0.98));
@@ -316,13 +359,11 @@ body {
   border-radius: 8px;
 }
 
-/* Ajustes: títulos dentro de cada sección usan el color principal del acento */
 #ejes-section h2, #ejes-section .main-title { color: var(--deep-blue); }
-#documents-panel h2 { color: #064036; } /* un verde más oscuro para contraste */
-#simulaciones h2, #simulaciones .simulaciones-title { color: #704700; } /* tono oscuro sobre amarillo */
-#contact-plain h2 { color: #7A2A23; } /* tono oscuro sobre rojo suave */
+#documents-panel h2 { color: #064036; }
+#simulaciones h2, #simulaciones .simulaciones-title { color: #704700; }
+#contact-plain h2 { color: #7A2A23; }
 
-/* simulaciones: texto izq, imagen der */
 .sim-row {
   display: flex;
   gap: 20px;
@@ -359,7 +400,6 @@ body {
   }
 }
 
-/* btn inicio simulaciones */
 .btn-start {
   display: inline-block;
   padding: 12px 22px;
@@ -385,14 +425,36 @@ body {
   transform: scale(0.99);
 }
 
-/* Asegura que las secciones ancla queden visibles al hacer scroll (offset por nav fijo) */
+#start-btn {
+  display: inline-block;
+  text-decoration: none !important;
+  -webkit-text-decoration-skip-ink: none;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  transform-origin: center;
+}
+
+#start-btn:hover,
+#start-btn:focus {
+  background: var(--soft-red) !important;
+  color: #ffffff !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 14px 36px rgba(240,154,146,0.24) !important;
+  outline: none;
+}
+
+#start-btn:active {
+  transform: translateY(-2px) !important;
+}
+
 #documents-panel,
 #simulaciones,
 .main-title {
   scroll-margin-top: 28px;
 }
 
-/* Estilos para panel de documentos y previsualizaciones */
 .docs-grid {
   display: flex;
   flex-direction: row;
@@ -411,13 +473,13 @@ body {
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0,0,0,0.04);
-  width: 320px; /* ancho fijo para alineación horizontal */
+  width: 320px;
   max-width: 320px;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 .doc-card {
   background: #fff;
-  border-radius: 8px; /* menos radio */
+  border-radius: 8px;
   padding: 14px;
   box-shadow: 0 8px 22px rgba(16, 24, 40, 0.05);
   display: flex;
@@ -429,16 +491,16 @@ body {
 }
 
 .doc-thumb {
-  background: #f6f8fa; /* placeholder claro */
+  background: #f6f8fa;
   border-radius: 12px;
   overflow: hidden;
-  height: 170px; /* más alto como en la referencia */
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .doc-thumb {
-  background: #f6f8fa; /* placeholder claro */
+  background: #f6f8fa;
   border-radius: 8px;
   overflow: hidden;
   height: 150px;
@@ -451,7 +513,7 @@ body {
   width: 100%;
   height: 100%;
   border: 0;
-  display: none; /* oculto por defecto, se carga al hacer clic en Previsualizar */
+  display: none;
 }
 
 .doc-meta {
@@ -459,7 +521,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  text-align: left; /* mantener texto de meta alineado a la izquierda dentro de la tarjeta */
+  text-align: left;
 }
 
 .doc-title {

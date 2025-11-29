@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Principal - Simulador</title>
+    <link rel="icon" type="image/png" href="imagenes/logo de la pagina.png" />
     <link rel="stylesheet" href="palette.css" />
     <link rel="stylesheet" href="principal-estil.css" />
     <link rel="stylesheet" href="../styles/palette-global.css" />
@@ -11,13 +12,15 @@
 <body>
     <div class="wrap">
         <aside class="nav">
-            <div class="logo"></div>
-            <a class="nav-link" href="#top">Ejes tematicos</a>
-            <a class="nav-link" href="#documents-panel">Documentos</a>
-            <a class="nav-link" href="#simulaciones">Simulador</a>
+            <div class="logo">
+                <img src="imagenes/logo de la pagina.png" alt="Logo" class="nav-logo-image" />
+            </div>
+            <a class="nav-link blue" href="#top">Ejes tematicos</a>
+            <a class="nav-link green" href="#documents-panel">Documentos</a>
+            <a class="nav-link gold" href="#simulaciones">Simulador</a>
         </aside>
         <main class="content" id="top">
-            <!-- Sección: Ejes temáticos (texto expandido proporcionado por el usuario) -->
+            
             <section class="panel" id="ejes-section">
                 <h2>Ejes temáticos</h2>
                 <h4>Impacto de las Simulaciones Educativas en la Enseñanza</h4>
@@ -50,9 +53,9 @@
                 </p>
             </section>
             
-            <!-- (La sección 'Simulaciones' se ha movido debajo del panel de Documentos según solicitud) -->
             
-            <!-- Panel de Documentos con previsualizaciones -->
+            
+            
             <div class="panel" id="documents-panel" style="margin-top:18px">
                 <h2 style="margin-top:0">Documentos propuestos</h2>
                 <p>Previsualizaciones cargadas automáticamente; si el sitio lo bloquea por cabeceras (X-Frame-Options), use "Abrir" para ver el documento en una nueva pestaña.</p>
@@ -100,7 +103,7 @@
                 </div>
             </div>
             
-            <!-- Sección Simulaciones (inserción) -->
+            
             <section class="panel simulaciones" id="simulaciones">
                 <h2 class="simulaciones-title">Simulaciones</h2>
                 
@@ -124,24 +127,22 @@
                     </div>
                     
                     <div class="sim-image">
-                        <img src="./simulacion.png" alt="Imagen de la simulación" />
+                        <img src="imagenes/simulacion.png" alt="Imagen de la simulación" />
                     </div>
                 </div>       
             </section>  
             <div id="contact-plain">
                 <div class="contact-row">
                     <div class="contact-image-wrap">
-                        <a href="./LOGO sin Fondo.png" target="_blank" rel="noopener">
                             <img src="imagenes/LOGO sin Fondo.png" alt="Imagen de contacto" class="contact-image" />
-                        </a>
-                    </div>
+                        </div>
                     <div class="contact-texts">
                         <h2>Contacto</h2>
                         <div class="contact-list">
-                            <p class="contact-text">johan.arias1@utp.edu.co</p>
-                            <p class="contact-text">Juan.salgado2@utp.edu.co</p>
-                            <p class="contact-text">juan.giraldo16@utp.edu.co</p>
-                            <p class="contact-text">fulton.torres@utp.edu.co</p>
+                            <a class="contact-text" href="mailto:johan.arias1@utp.edu.co">johan.arias1@utp.edu.co</a>
+                            <a class="contact-text" href="mailto:Juan.salgado2@utp.edu.co">Juan.salgado2@utp.edu.co</a>
+                            <a class="contact-text" href="mailto:juan.giraldo16@utp.edu.co">juan.giraldo16@utp.edu.co</a>
+                            <a class="contact-text" href="mailto:fulton.torres@utp.edu.co">fulton.torres@utp.edu.co</a>
                         </div>
                     </div>
                 </div>

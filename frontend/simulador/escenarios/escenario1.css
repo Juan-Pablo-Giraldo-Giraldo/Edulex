@@ -55,7 +55,6 @@ header.top {
   margin-bottom: 6px;
 }
 
-/* Tamaños */
 html.size-small .content {
   font-size: 0.95rem;
 }
@@ -68,7 +67,6 @@ html.size-large .content {
   font-size: 1.25rem;
 }
 
-/* Anchuras */
 html.width-standard .content {
   max-width: 780px;
 }
@@ -77,7 +75,6 @@ html.width-wide .content {
   max-width: 1100px;
 }
 
-/* Temas */
 html.theme-dark {
   background: #111;
   --bg: #0b1220;
@@ -90,13 +87,11 @@ html.theme-light {
   --text: #111;
 }
 
-/* pequeños ajustes */
 .content p {
   line-height: 1.6;
   color: var(--text);
 }
 
-/* Estilos para botones de opción */
 .option-btn {
   display: inline-block;
   padding: 8px 12px;
@@ -109,14 +104,13 @@ html.theme-light {
   transition: all 0.14s ease;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
 }
-/* ajustes */
+
 .option-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
 }
 
 .option-btn.correct {
-/* botones de opción */
   background: #f0fff4;
 }
 

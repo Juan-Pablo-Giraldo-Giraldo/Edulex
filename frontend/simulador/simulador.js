@@ -54,7 +54,7 @@
     try{
       const res = await fetch('/report-bug', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if(res.ok){ if(bugStatus) bugStatus.textContent='Reporte enviado. Gracias.'; setTimeout(closeBugModal,1200); return; }
-    }catch(err){ /* ignore */ }
+    }catch(err){ }
 
     // fallback: save to localStorage
     try{

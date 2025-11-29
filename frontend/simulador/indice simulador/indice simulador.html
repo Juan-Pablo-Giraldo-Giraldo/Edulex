@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Simulador - Ley 1620 de 2013</title>
+    <link rel="icon" type="image/png" href="../../principal/imagenes/logo de la pagina.png" />
     <link rel="stylesheet" href="palette.css" />
     <link rel="stylesheet" href="principal-estil.css" />
     <link rel="stylesheet" href="simulador.css" />
@@ -18,17 +19,17 @@
       </header>
 
       <main class="sim-main" id="top">
-        <!-- Pantalla de Inicio/registro -->
+        
         <section id="screen-home" class="screen">
           <h2>Bienvenido</h2>
           <p>Practica la aplicación de la Ley 1620 mediante decisiones en escenarios reales. No es una encuesta: es un simulador de toma de decisiones.</p>
           <p>Si ya iniciaste sesión en la pantalla de registro, tu cuenta está vinculada al ranking automáticamente.</p>
         </section>
 
-        <!-- Lista de escenarios y panel de toma de decisiones -->
+        
         <section id="screen-scenarios" class="screen hidden">
 
-          <!-- Panel de selección de situación (tarjetas coloreadas) -->
+          
           <div class="situation-panel">
             <div class="section-title">Elige la situación requerida</div> 
             <div class="situation-grid">
@@ -48,7 +49,7 @@
                 </div>
               </div>
 
-              <div class="situation-card gold" tabindex="0">
+              <div class="situation-card red" tabindex="0">
                 <div class="label">Ciberacoso</div>
                 <div class="desc">Incidentes online donde se vulnera la dignidad de estudiantes.</div>
                 <div class="situation-actions">
@@ -56,7 +57,7 @@
                 </div>
               </div>
 
-              <div class="situation-card red" tabindex="0">
+              <div class="situation-card gold" tabindex="0">
                 <div class="label">Riesgo de seguridad</div>
                 <div class="desc">Casos que requieren intervención inmediata por riesgo físico.</div>
                 <div class="situation-actions">
@@ -66,7 +67,7 @@
             </div>
           </div>
 
-          <!-- Botón único: Ver ranking (ancho completo debajo del selector) -->
+          
           <div class="situation-footer">
             <a class="btn color-deep full" href="../../ranking/ranking.html">Ver ranking</a>
           </div>
@@ -79,17 +80,17 @@
           </div>
         </section>
 
-        <!-- Resultados / retroalimentación final -->
+        
         <section id="screen-results" class="screen hidden">
           <div id="final-feedback"></div>
           <div id="leaderboard"></div>
 
-          <!-- Los botones de acción finales se gestionan desde la página de ranking ahora -->
+          
         </section>
       </main>
     </div>
     <script src="simula_logic.js"></script>
-<!-- Code injected by live-server -->
+ 
 <script>
 	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {

@@ -227,7 +227,6 @@
       openScenarioById(id);
     }
   });
-  // Agregar listeners solo si los elementos existen (hemos eliminado varios botones del DOM)
   if(backToList) backToList.addEventListener('click', ()=>{ scenarioPanel.classList.add('hidden'); });
   if(prevBtn) prevBtn.addEventListener('click', ()=>{ gotoPrev(); });
   if(nextBtn) nextBtn.addEventListener('click', ()=>{
